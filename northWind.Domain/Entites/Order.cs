@@ -13,6 +13,7 @@ namespace northWind.Domain.Entites
         public DateTime OrderDate { get; set; }
         public DateTime ShippedDate { get; set; }
         public string ShipName { get; set; }
-
+        public decimal Subtotal { get; set; }
+        public string Year { get; set; }
     }
 }
