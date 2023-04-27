@@ -24,8 +24,8 @@
             SELECT TOP 500
                 OrderID as OrderID,
                 CustomerID as CustomerID,
-                OrderDate as OrderDate
-                ShippedDate as ShippedDate
+                OrderDate as OrderDate,
+                ShippedDate as ShippedDate,
                 ShipName as ShipName
             FROM 
                 dbo.Orders
