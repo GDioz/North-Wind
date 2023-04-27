@@ -39,7 +39,7 @@
             FROM 
                 dbo.Products
             WHERE 
-                UnitPrice <  @price"  
+                UnitPrice <  @price"
         ;
 
         public const string SQL_OBTER_PRODUTO_ACIMA_DA_MEDIA_PRECO = @"

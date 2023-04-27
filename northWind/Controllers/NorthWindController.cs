@@ -16,7 +16,7 @@ namespace northWind.Controllers
         [HttpGet("orders")]
         public async Task<IActionResult> ObterOrders()
         {
-            var orders =  await _northwindRepository.ObterOrders();
+            var orders = await _northwindRepository.ObterOrders();
             return Ok(orders);
         }
 
@@ -30,7 +30,7 @@ namespace northWind.Controllers
         [HttpGet("products/{price}")]
         public async Task<IActionResult> ObterProducts(decimal price)
         {
-            var products =  await _northwindRepository.ObterProducts(price);
+            var products = await _northwindRepository.ObterProducts(price);
             return Ok(products);
         }
 
