@@ -31,12 +31,14 @@ namespace northWind.Infrastructure.Repositorys
             return lista.ToArray();
         }
 
-        public async Task<List<Product>> ObterProducts(decimal price)
+        public async Task<List<Product>> ObterProducts()
         {
-            var parametros = new DynamicParameters();
-            parametros.Add("@price", price, DbType.Decimal);
-
-            var lista = await Query<Product>(NorthWindScripts.SQL_OBTER_PRODUTOS, parametros);
+            var lista = await Query<Product>(NorthWindScripts.SQL_OBTER_PRODUTOS);
+            return lista;
+        }
+        public async Task<List<Employees>> ObterEmployees()
+        {
+            var lista = await Query<Employees>(NorthWindScripts.SQL_OBTER_FUNCIONARIOS);
             return lista;
         }
 
@@ -55,6 +57,12 @@ namespace northWind.Infrastructure.Repositorys
         public async Task<List<Employees>> ObterVendaPorPais()
         {
             var lista = await Query<Employees>(NorthWindScripts.SQL_OBTER_VENDA_POR_PAIS);
+            return lista;
+        }
+
+        public async Task<List<OrderDetails>> ObterOrderDetails()
+        {
+            var lista = await Query<OrderDetails>(NorthWindScripts.SQL_OBTER_ORDER_DETAILS);
             return lista;
         }
 

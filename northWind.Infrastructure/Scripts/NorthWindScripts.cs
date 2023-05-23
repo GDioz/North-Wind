@@ -20,13 +20,16 @@
                 O.OrderID,
                 ShippedDate";
 
+        public const string SQL_OBTER_ORDER_DETAILS = @"
+            SELECT 
+                *
+            FROM 
+                dbo.[Order Details]
+        ";
+
         public const string SQL_OBTER_ORDERS = @"
             SELECT TOP 500
-                OrderID as OrderID,
-                CustomerID as CustomerID,
-                OrderDate as OrderDate,
-                ShippedDate as ShippedDate,
-                ShipName as ShipName
+                *
             FROM 
                 dbo.Orders
         ";
@@ -37,10 +40,15 @@
                 ProductName as ProductName,
                 UnitPrice as UnitPrice
             FROM 
-                dbo.Products
-            WHERE 
-                UnitPrice <  @price"
+                dbo.Products"
         ;
+
+        public const string SQL_OBTER_FUNCIONARIOS = @"
+            SELECT
+                *
+            FROM
+                dbo.Employees
+        ";
 
         public const string SQL_OBTER_PRODUTO_ACIMA_DA_MEDIA_PRECO = @"
             SELECT TOP 500

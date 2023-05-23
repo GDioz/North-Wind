@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\northWind.Application\northWind.Application.csproj" />
     <ProjectReference Include="..\northWind.Domain\northWind.Domain.csproj" />
     <ProjectReference Include="..\northWind.Infrastructure\northWind.Infrastructure.csproj" />
   </ItemGroup>
