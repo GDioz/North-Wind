@@ -98,7 +98,13 @@ namespace northWind.Controllers
                             on employee.EmployeeID equals order.EmployeeID
                          join detail in orderDetails
                             on order.OrderID equals detail.OrderID
-                        group new {employee, order, detail} by new { employee.Country, employee.LastName, employee.FirstName, order.OrderID, order.ShippedDate} into g
+                        group new {employee, order, detail} by new { 
+                                                                     employee.Country, 
+                                                                     employee.LastName, 
+                                                                     employee.FirstName, 
+                                                                     order.OrderID, 
+                                                                     order.ShippedDate
+                                                                   } into g
                          select new EmployeeByCountryModel
                          {
                              Country = g.Key.Country,

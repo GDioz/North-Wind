@@ -16,15 +16,6 @@ namespace northWind.Infrastructure.Repositorys
             _serviceProvider = serviceProvider;
         }
 
-        public async Task<List<Order>> ObterOrderPorAno(string year)
-        {
-            var parametros = new DynamicParameters();
-            parametros.Add("@year", year, DbType.String);
-
-            List<Order> lista = await Query<Order>(NorthWindScripts.SQL_OBTER_PRODUTO_POR_ANO, parametros);
-            return lista;
-        }
-
         public async Task<Order[]> ObterOrders()
         {
             var lista = await Query<Order>(NorthWindScripts.SQL_OBTER_ORDERS);
@@ -39,24 +30,6 @@ namespace northWind.Infrastructure.Repositorys
         public async Task<List<Employees>> ObterEmployees()
         {
             var lista = await Query<Employees>(NorthWindScripts.SQL_OBTER_FUNCIONARIOS);
-            return lista;
-        }
-
-        public async Task<List<Product>> ObterProdutosAcimaDaMediaPreco()
-        {
-            var lista = await Query<Product>(NorthWindScripts.SQL_OBTER_PRODUTO_ACIMA_DA_MEDIA_PRECO);
-            return lista;
-        }
-
-        public async Task<List<Order>> ObterValorTotalPedido()
-        {
-            var lista = await Query<Order>(NorthWindScripts.SQL_OBTER_VALOR_TOTAL_PEDIDO);
-            return lista;
-        }
-
-        public async Task<List<Employees>> ObterVendaPorPais()
-        {
-            var lista = await Query<Employees>(NorthWindScripts.SQL_OBTER_VENDA_POR_PAIS);
             return lista;
         }
 
