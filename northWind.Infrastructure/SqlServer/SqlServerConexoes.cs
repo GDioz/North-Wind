@@ -1,21 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace northWind.Infrastructure.SqlServer
 {
     internal class SqlServerConexoes : IDisposable
     {
-        private readonly Dictionary<SqlServerAcessos, Lazy<SqlConnection>> _conexoesBanco = new ();
+        private readonly Dictionary<SqlServerAcessos, Lazy<SqlConnection>> _conexoesBanco = new();
         public SqlServerConexoes(IConfiguration configuration)
         {
-            _conexoesBanco.Add(SqlServerAcessos.northWind,new Lazy<SqlConnection> (() => 
+            _conexoesBanco.Add(SqlServerAcessos.northWind, new Lazy<SqlConnection>(() =>
             OpenConnection(CriarStringConexao(
                 configuration["northWind_connection_string"],
                 string.Empty,
@@ -44,7 +39,7 @@ namespace northWind.Infrastructure.SqlServer
                 Encrypt = false
             };
 
-            if(sqlConnection.IntegratedSecurity)
+            if (sqlConnection.IntegratedSecurity)
                 return sqlConnection.ToString();
 
             sqlConnection.UserID = user;
@@ -60,9 +55,9 @@ namespace northWind.Infrastructure.SqlServer
             {
                 var sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
-                return sqlConnection; 
+                return sqlConnection;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(connectionString, ex);
             }
